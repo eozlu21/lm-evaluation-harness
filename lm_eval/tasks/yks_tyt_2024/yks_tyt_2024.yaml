@@ -1,0 +1,15 @@
+task: yks_tyt_2024
+dataset_path: eozlu/yks-tyt-2024
+dataset_name: default
+test_split: train
+output_type: multiple_choice
+
+doc_to_text: "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nE. {{choices[4]}}Answer:"
+doc_to_choice: ["A", "B", "C", "D", "E"]
+doc_to_target: answer
+
+metric_list:
+  - metric: acc
+
+metadata:
+  version: 0
