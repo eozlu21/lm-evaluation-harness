@@ -4,12 +4,14 @@ dataset_name: default
 test_split: train
 output_type: multiple_choice
 
-doc_to_text: "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nE. {{choices[4]}}Answer:"
+doc_to_text: "Soru: {{ question.strip() }}\n{{ choices[0] }}\n{{ choices[1] }}\n{{ choices[2] }}\n{{ choices[3] }}\n{{ choices[4] }}\nCevap:"
 doc_to_choice: ["A", "B", "C", "D", "E"]
 doc_to_target: answer
 
 metric_list:
   - metric: acc
+    aggregation: mean
+    higher_is_better: true
 
 metadata:
   version: 0
