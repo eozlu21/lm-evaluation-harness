@@ -1,5 +1,5 @@
 task: yks_tyt_2024
-dataset_path: eozlu/yks-tyt-2024
+dataset_path: AtlasPolat/yks2024
 dataset_name: default
 test_split: train
 output_type: multiple_choice
