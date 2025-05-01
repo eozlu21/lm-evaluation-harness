@@ -16,9 +16,8 @@ doc_to_text: |
 
 doc_to_choice: ["A", "B", "C", "D", "E"]
 
-doc_to_target: |
-  {% set idx = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4} %}
-  {{ int(str(idx[answer]).strip()) }}
+doc_to_target: "{{ {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}[answer] }}"
+
 
 metric_list:
   - metric: acc
