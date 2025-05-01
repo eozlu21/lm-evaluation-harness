@@ -14,9 +14,8 @@ doc_to_text: |
   {{ choices[4] }}
   Cevap:
 
-doc_to_choice: ["A", "B", "C", "D", "E"]
-
-doc_to_target: "{{ {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}[answer] }}"
+doc_to_choice: "{{choices}}"
+doc_to_target: "{{ answer }}"
 
 
 metric_list:
