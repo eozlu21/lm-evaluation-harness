@@ -5,8 +5,10 @@ test_split: train
 output_type: multiple_choice
 
 doc_to_text: |
+  Soru:
   {% if passage %}{{ passage.strip() }}{% endif %}
   {{ question.strip() }}
+  Seçenekler:
   {{ choices[0] }}
   {{ choices[1] }}
   {{ choices[2] }}
