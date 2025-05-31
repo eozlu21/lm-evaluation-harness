@@ -1,0 +1,9 @@
+ModuleCmd_Load.c(213):ERROR:105: Unable to locate a modulefile for 'cuda/12.0'
+/var/spool/slurm/d/job2376040/slurm_script: line 18: micromamba: command not found
+/var/spool/slurm/d/job2376040/slurm_script: line 21: cd: lm-evaluation-harness: No such file or directory
+/var/spool/slurm/d/job2376040/slurm_script: line 24: micromamba: command not found
+/var/spool/slurm/d/job2376040/slurm_script: line 25: micromamba: command not found
+/var/spool/slurm/d/job2376040/slurm_script: line 28: micromamba: command not found
+/var/spool/slurm/d/job2376040/slurm_script: line 29: pip: command not found
+/var/spool/slurm/d/job2376040/slurm_script: line 32: pip: command not found
+run_lm_eval.sh: line 3: lm_eval: command not found
