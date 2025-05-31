@@ -105,6 +105,24 @@ grouped_df['accuracy_no_image'] = grouped_df.apply(
     axis=1
 )
 
+# Calculate the points in different sections
+# Net = Correct - (Wrong × 0.25)
+
+grouped_df['nets'] = grouped_df['correct'] - (grouped_df['total'] - grouped_df['correct']) * 0.25
+# Estimate the scores for TURKCE-TESTI TEMEL-MATEMATIK-TESTI SOSYAL-BILIMLER-TESTI TEMEL-FEN-BILIMLERI-TESTI
+# Base Score: 100 (everyone gets this)
+# TURKCE-TESTI 1.32 per net 
+# MATEMATIK-TESTI 1.32 per net
+# SOSYAL-BILIMLER-TESTI 1.36 per net
+# TEMEL-FEN-BILIMLERI-TESTI 1.36 per net
+
+grouped_df['score'] = 100 + grouped_df['nets'] * grouped_df['section'].map({
+    'TURKCE-TESTI': 1.32,
+    'MATEMATIK-TESTI': 1.32,
+    'SOSYAL-BILIMLER-TESTI': 1.36,
+    'TEMEL-FEN-BILIMLERI-TESTI': 1.36
+})
+
 
 # Overall aggregation
 
