@@ -3,8 +3,8 @@
 #SBATCH -p mid                  # Partition (queue) name
 #SBATCH --qos=users             # Quality of service
 #SBATCH --gres=gpu:a100:1       # Request 1 A100 GPU
-#SBATCH -c 64                   # Request 64 CPU cores (max for A100 nodes)
-#SBATCH --mem=400G              # Request 400GB RAM (adjust if needed)
+#SBATCH -c 8                    # Reduced CPU cores to 8
+#SBATCH --mem=100G              # Reduced RAM to 100GB
 #SBATCH --time=1-00:00:00       # Max runtime (1 day)
 #SBATCH -o results_%j.txt       # Save output to results_JOBID.txt
 #SBATCH -e errors_%j.txt        # Save errors to errors_JOBID.txt
