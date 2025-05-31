@@ -11,26 +11,26 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=apolat21@ku.edu.tr
 
-# Load required modules
-module load cuda/12.0
+# Load miniconda module
+module load miniconda
 
-# Initialize micromamba
-eval "$(micromamba shell hook --shell bash)"
+# Initialize conda
+source activate base
 
-# Change to the evaluation directory
+# Clone the repository
+git clone https://github.com/eozlu21/lm-evaluation-harness.git
 cd lm-evaluation-harness
 
-# Create and activate environment (only if it doesn't exist)
-micromamba env create -n lm_eval -y || true
-micromamba activate lm_eval
+# Create and activate conda environment
+conda create -n lm_eval python=3.12.9 -y
+conda activate lm_eval
 
-# Install Python and dependencies
-micromamba install python==3.12.9 -y
+# Install PyTorch with CUDA support
+conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia -y
+
+# Install other dependencies
 pip install -e .
-
-# Install additional dependencies for Qwen
-pip install torch>=2.0.0 transformers>=4.37.0 accelerate tiktoken einops
+pip install transformers>=4.37.0 accelerate tiktoken einops
 
 # Run the evaluation
 bash run_lm_eval.sh
-
