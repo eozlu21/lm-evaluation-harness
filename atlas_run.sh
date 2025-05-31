@@ -12,18 +12,17 @@
 #SBATCH --mail-user=apolat21@ku.edu.tr
 
 # Load miniconda module
-module load miniconda
+module load miniconda3/4.14
 
-# Initialize conda
-source activate base
 
 # Clone the repository
 git clone https://github.com/eozlu21/lm-evaluation-harness.git
 cd lm-evaluation-harness
 
-# Create and activate conda environment
-conda create -n lm_eval python=3.12.9 -y
-conda activate lm_eval
+
+# Create and activate environment
+micromamba env create -n lm_eval
+micromamba activate lm_eval
 
 # Install PyTorch with CUDA support
 conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia -y
